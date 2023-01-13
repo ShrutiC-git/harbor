@@ -27,7 +27,7 @@ WORKDIR /home/harbor
 COPY ../../../src/core/main.go .
 RUN go mod init main
 # RUN go mod tidy
-
+RUN go get ...
 # RUN go get github.com/gomodule/redigo@latest
 # RUN go mod tidy
 RUN chmod +x .
