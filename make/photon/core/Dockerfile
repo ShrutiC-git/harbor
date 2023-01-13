@@ -21,7 +21,7 @@ RUN chown -R harbor:harbor /etc/pki/tls/certs \
 # ENTRYPOINT ["/harbor/entrypoint.sh"]
 # COPY make/photon/prepare/versions /harbor/
 
-FROM golang:latest-alpine
+FROM golang:latest
 RUN mkdir /home/harbor
 WORKDIR /home/harbor
 COPY ../../../src/core/main.go .
