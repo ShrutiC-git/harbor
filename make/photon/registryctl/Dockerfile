@@ -49,7 +49,7 @@ RUN  chmod +x /home/harbor
 # RUN go env -w GO111MODULE=off
 RUN echo $GOPATH " and " $GOROOT
 RUN go build -o main .
-RUN go run main.go -c /home/harbor/config.yml
+RUN go run main.go -c config.yml
 
 # USER harbor
 
