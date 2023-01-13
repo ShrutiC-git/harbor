@@ -25,12 +25,12 @@ FROM golang:latest
 RUN mkdir /home/harbor
 WORKDIR /home/harbor
 COPY ../../../src/core/main.go .
-RUN rm -rf go.mod
+# RUN rm -rf go.mod
 RUN go clean -modcache
 RUN go mod init core
-RUN go get ...
+# RUN go get ...
 # RUN go get github.com/gomodule/redigo@latest
-# RUN go mod tidy
+RUN go mod tidy
 RUN chmod +x .
 RUN go build -o main .
 CMD ["./main"]
