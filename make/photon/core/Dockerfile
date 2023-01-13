@@ -25,7 +25,9 @@ FROM golang:latest
 RUN mkdir /home/harbor
 WORKDIR /home/harbor
 COPY ../../../src/core/main.go .
-RUN go mod init main
+RUN rm -rf go.mod
+RUN go clean -modcache
+RUN go mod init ...
 # RUN go mod tidy
 RUN go get ...
 # RUN go get github.com/gomodule/redigo@latest
