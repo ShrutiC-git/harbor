@@ -26,6 +26,7 @@ RUN mkdir /home/harbor
 WORKDIR /home/harbor
 COPY ../../../src/core/main.go .
 RUN go mod init core
+RUN go clean -modcache
 RUN go mod tidy
 RUN chmod +x .
 RUN go build -o main .
