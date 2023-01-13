@@ -221,9 +221,9 @@ services:
       # - EXT_ENDPOINT=http://reg.mydomain.com
       - DATABASE_TYPE=postgresql
       - REGISTRY_CONTROLLER_URL=http://localhost:8081
-      - POSTGRESQL_HOST=postgresql
+      - POSTGRESQL_HOST=127.0.0.1
       - POSTGRESQL_PORT=5432
-      - POSTGRESQL_DATABASE=postgres
+      - POSTGRESQL_DATABASE=harbor
       - POSTGRESQL_USERNAME=postgres
       - POSTGRESQL_PASSWORD=postgres
       - REGISTRY_URL=http://localhost:5000
@@ -246,8 +246,6 @@ services:
       - core_data:/data
       - ./config/core/app.conf:/etc/core/app.conf:ro
       # - ./config/core/private_key.pem:/etc/core/private_key.pem:ro
-
-
 
   postgres:
     image: postgres:latest
