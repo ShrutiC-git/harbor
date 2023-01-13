@@ -50,7 +50,7 @@ RUN echo $GOPATH " and " $GOROOT
 RUN go build -o main .
 
 
-USER harbor
+# USER harbor
 
 # RUN export GOPATH=/home/harbor
 # RUN go get -u
