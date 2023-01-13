@@ -39,9 +39,10 @@ RUN  chown harbor:harbor /home/harbor/config.yml && chmod u+x /home/harbor/confi
 
 FROM golang:1.17-alpine
 RUN mkdir /home/harbor
-COPY ../../../config/registry/config.yml /home/harbor
-COPY ../../../src/registryctl/main.go /home/harbor
+
 WORKDIR /home/harbor
+COPY ../../../config/registry/config.yml .
+COPY ../../../src/registryctl/main.go .
 RUN go mod init registryctl
 RUN go mod tidy -compat=1.17
 RUN  chmod +x /home/harbor
