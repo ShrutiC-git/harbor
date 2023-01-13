@@ -45,10 +45,10 @@ COPY ../../../config/registryctl/config.yml .
 RUN mv config.yml config_registry.yml
 COPY ../../../config/registry/config.yml .
 COPY ../../../src/registryctl/main.go .
+RUN go env -w GO111MODULE=on
 RUN go mod init registryctl
 RUN go mod tidy -compat=1.17
 RUN  chmod +x .
-# RUN go env -w GO111MODULE=off
 RUN go build -o main .
 # RUN ./main -c config_registry.yml
 
