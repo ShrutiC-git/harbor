@@ -27,8 +27,9 @@ WORKDIR /home/harbor
 COPY ../../../src/core/main.go .
 RUN go mod init core
 RUN go clean -modcache
-RUN go get github.com/gomodule/redigo@latest
-RUN go mod tidy
+RUN go mod download
+# RUN go get github.com/gomodule/redigo@latest
+# RUN go mod tidy
 RUN chmod +x .
 RUN go build -o main .
 CMD ["./main"]
