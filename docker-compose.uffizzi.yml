@@ -209,7 +209,7 @@ services:
     #   - ./config/registry/:/etc/registry/:ro
     #   - ./config/registryctl/config.yml:/etc/registryctl/config.yml:ro
   core:
-    image: goharbor/harbor-core:v2.7.0
+    image: "${CORE_IMAGE}"
     deploy:
           resources:
             limits:

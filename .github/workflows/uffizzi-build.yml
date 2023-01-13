@@ -34,7 +34,7 @@ jobs:
         with:
           context: .
           build-args: |
-            harbor_base_image_version=v2.4.3
+            harbor_base_image_version=v2.5.5
             harbor_base_namespace=goharbor
           file: ./make/photon/registry/Dockerfile
           tags: ${{ steps.meta.outputs.tags }}
@@ -73,7 +73,7 @@ jobs:
         with:
           context: .
           build-args: |
-            harbor_base_image_version=v2.4.3
+            harbor_base_image_version=v2.5.5
             harbor_base_namespace=goharbor
           file: ./make/photon/core/Dockerfile
           tags: ${{ steps.meta.outputs.tags }}
@@ -112,7 +112,7 @@ jobs:
         with:
           context: .
           build-args: |
-            harbor_base_image_version=v2.4.3
+            harbor_base_image_version=v2.5.5
             harbor_base_namespace=goharbor
           file: ./src/portal/docker-build/Dockerfile
           tags: ${{ steps.meta.outputs.tags }}
@@ -151,7 +151,7 @@ jobs:
         with:
           context: .
           build-args: |
-            harbor_base_image_version=v2.4.3
+            harbor_base_image_version=v2.5.5
             harbor_base_namespace=goharbor
           file: ./make/photon/jobservice/Dockerfile
           tags: ${{ steps.meta.outputs.tags }}
@@ -190,7 +190,7 @@ jobs:
         with:
           context: .
           build-args: |
-            harbor_base_image_version=v2.4.3
+            harbor_base_image_version=v2.5.5
             harbor_base_namespace=goharbor
           file: ./make/photon/registryctl/Dockerfile
           tags: ${{ steps.meta.outputs.tags }}
@@ -229,7 +229,7 @@ jobs:
   #       with:
   #         context: .
   #         build-args: |
-  #           harbor_base_image_version=v2.4.3
+  #           harbor_base_image_version=v2.5.5
   #           harbor_base_namespace=goharbor
   #         file: ./make/photon/notary-server/Dockerfile
   #         tags: ${{ steps.meta.outputs.tags }}
@@ -268,7 +268,7 @@ jobs:
   #       with:
   #         context: .
   #         build-args: |
-  #           harbor_base_image_version=v2.4.3
+  #           harbor_base_image_version=v2.5.5
   #           harbor_base_namespace=goharbor
   #         file: ./make/photon/notary-signer/Dockerfile
   #         tags: ${{ steps.meta.outputs.tags }}
