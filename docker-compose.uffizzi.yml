@@ -210,6 +210,10 @@ services:
     #   - ./config/registryctl/config.yml:/etc/registryctl/config.yml:ro
   core:
     image: goharbor/harbor-core:v2.7.0
+    deploy:
+          resources:
+            limits:
+              memory: 1000M
     environment:
       # - CORE_KEY=change-this-key
       # - _REDIS_URL_CORE=redis://redis:6379/0
