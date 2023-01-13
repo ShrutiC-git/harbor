@@ -50,6 +50,7 @@ RUN  chmod +x /home/harbor
 # RUN go env -w GO111MODULE=off
 RUN pwd
 RUN ls
+RUN chmod +x /registryctl
 RUN cd registryctl && ls
 # RUN go build -o main .
 
