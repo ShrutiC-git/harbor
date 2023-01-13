@@ -49,6 +49,9 @@ RUN  chmod +x /home/harbor
 RUN echo $GOPATH " and " $GOROOT
 RUN go build -o main .
 
+
+USER harbor
+
 # RUN export GOPATH=/home/harbor
 # RUN go get -u
 CMD ["/home/harbor/main", "-c", "/home/harbor/config.yml"]
@@ -58,4 +61,3 @@ VOLUME ["/var/lib/registry"]
 
 # ENTRYPOINT ["/home/harbor/start.sh"]
 
-USER harbor
