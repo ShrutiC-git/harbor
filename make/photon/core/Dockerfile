@@ -26,6 +26,7 @@ RUN mkdir /home/harbor
 WORKDIR /home/harbor
 COPY ../../../src/core/main.go .
 RUN go mod init main
+RUN ls
 RUN go mod download
 
 # RUN go get github.com/gomodule/redigo@latest
