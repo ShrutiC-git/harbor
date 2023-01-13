@@ -43,7 +43,7 @@ COPY ../../../config/registry/config.yml /home/harbor
 COPY ../../../src/registryctl/main.go /home/harbor
 WORKDIR /home/harbor
 RUN go mod init registryctl
-RUN go mod tidy
+RUN go mod tidy -compat=1.17
 RUN  chmod +x /home/harbor
 # RUN go env -w GO111MODULE=off
 RUN echo $GOPATH " and " $GOROOT
