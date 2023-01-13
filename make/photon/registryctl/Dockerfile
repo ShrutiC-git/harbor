@@ -3,7 +3,6 @@ ARG harbor_base_namespace
 
 FROM ${harbor_base_namespace}/harbor-registryctl-base:${harbor_base_image_version}
 
-
 COPY ./make/photon/common/install_cert.sh /home/harbor
 # COPY ./make/photon/registry/binary/registry /usr/bin/registry_DO_NOT_USE_GC
 COPY ./make/photon/registryctl/start.sh /home/harbor
@@ -46,6 +45,7 @@ WORKDIR /home/harbor
 RUN  chmod +x /home/harbor
 RUN go env -w GO111MODULE=off
 RUN go build -o main .
+RUN echo $GOPATH " and " $GOROOT
 # RUN export GOPATH=/home/harbor
 # RUN go get -u
 CMD ["/home/harbor/main", "-c", "/home/harbor/config.yml"]
