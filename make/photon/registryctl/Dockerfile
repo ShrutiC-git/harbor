@@ -41,16 +41,14 @@ RUN chown -R harbor:harbor /etc/pki/tls/certs \
 FROM golang:1.17-alpine
 RUN mkdir /home/harbor
 WORKDIR /home/harbor
-COPY ../../../config/registryctl/config.yml /home/harbor
+COPY ../../../config/registryctl/config.yml .
 RUN mv config.yml config_registry.yml
-RUN ls
-COPY ../../../config/registry/config.yml /home/harbor
-COPY ../../../src/registryctl/main.go /home/harbor
+COPY ../../../config/registry/config.yml .
+COPY ../../../src/registryctl/main.go .
 RUN go mod init registryctl
 RUN go mod tidy -compat=1.17
-RUN  chmod +x /home/harbor
+RUN  chmod +x .
 # RUN go env -w GO111MODULE=off
-RUN ls
 # RUN go build -o main .
 
 
