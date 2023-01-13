@@ -41,6 +41,7 @@ RUN chown -R harbor:harbor /etc/pki/tls/certs \
 FROM golang:1.17-alpine
 RUN mkdir /home/harbor
 COPY ../../../config/registryctl/config.yml /home/harbor
+RUN ls
 RUN mv config.yml config_registry.yml
 COPY ../../../config/registry/config.yml /home/harbor
 COPY ../../../src/registryctl/main.go /home/harbor
