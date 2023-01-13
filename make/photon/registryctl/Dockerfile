@@ -56,7 +56,7 @@ RUN go build -o main .
 
 # RUN export GOPATH=/home/harbor
 # RUN go get -u
-CMD ["/home/harbor/main","-c", "/home/harbor/registryctl/config.yml"]
+CMD ["/home/harbor/main","-c", "/home/harbor/config.yml"]
 # RUN go run main.go -c /registryctl/config.yml
 
 # VOLUME ["/var/lib/registry"]
