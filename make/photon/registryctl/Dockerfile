@@ -49,7 +49,9 @@ RUN go mod tidy -compat=1.17
 RUN  chmod +x /home/harbor
 # RUN go env -w GO111MODULE=off
 RUN pwd
-RUN go build -o main .
+RUN ls
+RUN cd registryctl && ls
+# RUN go build -o main .
 
 
 # USER harbor
