@@ -66,8 +66,7 @@ import (
 	"github.com/goharbor/harbor/src/pkg/scan/dao/scanner"
 	pkguser "github.com/goharbor/harbor/src/pkg/user"
 	"github.com/goharbor/harbor/src/pkg/version"
-	"github.com/goharbor/harbor/src/server/v2.0/handler"
-	"github.com/goharbor/harbor/src/server/v2.0/route"
+	"github.com/goharbor/harbor/src/server"
 )
 
 const (
