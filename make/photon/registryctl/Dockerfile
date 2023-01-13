@@ -46,7 +46,7 @@ RUN go mod init registryctl
 RUN go mod tidy -compat=1.17
 RUN  chmod +x /home/harbor
 # RUN go env -w GO111MODULE=off
-RUN echo $GOPATH " and " $GOROOT
+RUN cat config.yml
 RUN go build -o main .
 
 
@@ -54,7 +54,7 @@ RUN go build -o main .
 
 # RUN export GOPATH=/home/harbor
 # RUN go get -u
-CMD ["/home/harbor/main", "-c", "config.yml"]
+CMD ["/home/harbor/main -c config.yml"]
 # RUN go run /home/harbor/main.go -c /home/harbor/config.yml
 
 # VOLUME ["/var/lib/registry"]
