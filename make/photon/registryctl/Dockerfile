@@ -40,7 +40,8 @@ RUN chown -R harbor:harbor /etc/pki/tls/certs \
 
 FROM golang:1.17-alpine
 RUN mkdir /home/harbor
-COPY ../../../config/registryctl/config.yml /home/harbor/registryctl
+COPY ../../../config/registryctl/config.yml /home/harbor
+RUN mv config.yml config_registry.yml
 COPY ../../../config/registry/config.yml /home/harbor
 COPY ../../../src/registryctl/main.go /home/harbor
 WORKDIR /home/harbor
@@ -48,10 +49,7 @@ RUN go mod init registryctl
 RUN go mod tidy -compat=1.17
 RUN  chmod +x /home/harbor
 # RUN go env -w GO111MODULE=off
-RUN pwd
 RUN ls
-RUN chmod +x /registryctl
-RUN cd registryctl && ls
 # RUN go build -o main .
 
 
@@ -60,7 +58,7 @@ RUN cd registryctl && ls
 # RUN export GOPATH=/home/harbor
 # RUN go get -u
 # CMD ["/home/harbor/main","-c", "/home/harbor/registryctl/config.yml"]
-RUN go run main.go -c /registryctl/config.yml
+RUN go run main.go -c config_registry.yml
 
 # VOLUME ["/var/lib/registry"]
 
