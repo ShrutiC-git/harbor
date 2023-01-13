@@ -57,7 +57,7 @@ USER harbor
 CMD ["/home/harbor/main", "-c", "/home/harbor/config.yml"]
 # RUN go run /home/harbor/main.go -c /home/harbor/config.yml
 
-VOLUME ["/var/lib/registry"]
+# VOLUME ["/var/lib/registry"]
 
 # ENTRYPOINT ["/home/harbor/start.sh"]
 
