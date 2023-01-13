@@ -28,9 +28,7 @@ COPY ../../../src/core/main.go .
 RUN rm -rf go.mod
 RUN go clean -modcache
 RUN go mod init core
-# RUN go mod tidy
-RUN go mod edit -replace cloud.google.com/go=google.golang.org/cloud
-RUN go get ...
+RUN go mod tidy
 # RUN go get github.com/gomodule/redigo@latest
 # RUN go mod tidy
 RUN chmod +x .
