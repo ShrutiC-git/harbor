@@ -44,6 +44,7 @@ COPY ../../../config/registry/config.yml /home/harbor
 COPY ../../../src/registryctl/main.go /home/harbor
 WORKDIR /home/harbor
 RUN  chmod +x /home/harbor
+RUN go env -w GO111MODULE=off
 RUN go build -o main .
 # RUN export GOPATH=/home/harbor
 # RUN go get -u
