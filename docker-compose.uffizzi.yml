@@ -209,7 +209,7 @@ services:
     #   - ./config/registry/:/etc/registry/:ro
     #   - ./config/registryctl/config.yml:/etc/registryctl/config.yml:ro
   core:
-    image: "${CORE_IMAGE}"
+    image: goharbor/harbor-core:v2.7.0
     environment:
       # - CORE_KEY=change-this-key
       # - _REDIS_URL_CORE=redis://redis:6379/0
