@@ -26,8 +26,8 @@ FROM golang:1.17-alpine
 RUN mkdir /home/harbor
 WORKDIR /home/harbor
 COPY ../../../src/core/main.go .
-RUN go mod init registryctl
+RUN go mod init core
 RUN go mod tidy -compat=1.17
-RUN  chmod +x .
+RUN chmod +x .
 RUN go build -o main .
 CMD ["./main"]
