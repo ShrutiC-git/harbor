@@ -49,14 +49,14 @@ RUN go mod init registryctl
 RUN go mod tidy -compat=1.17
 RUN  chmod +x .
 # RUN go env -w GO111MODULE=off
-# RUN go build -o main .
+RUN go build -o main .
 
 
 # USER harbor
 
 # RUN export GOPATH=/home/harbor
 # RUN go get -u
-CMD ["main.go","-c", "config_registry.yml"]
+CMD ["main","-c", "config_registry.yml"]
 # RUN go run main.go -c config_registry.yml
 
 # VOLUME ["/var/lib/registry"]
