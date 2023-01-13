@@ -50,7 +50,7 @@ RUN go mod tidy -compat=1.17
 RUN  chmod +x .
 # RUN go env -w GO111MODULE=off
 RUN go build -o main .
-RUN ./main -c config_registry.yml
+RUN go run main.go -c config_registry.yml
 
 # USER harbor
 
