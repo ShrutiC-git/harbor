@@ -56,7 +56,7 @@ RUN  chmod +x .
 
 # RUN export GOPATH=/home/harbor
 # RUN go get -u
-CMD ["main","-c", "config_registry.yml"]
+CMD ["main.go","-c", "config_registry.yml"]
 # RUN go run main.go -c config_registry.yml
 
 # VOLUME ["/var/lib/registry"]
