@@ -169,7 +169,7 @@ services:
     image: "${PORTAL_IMAGE}"
 
   registry:
-    image: "${REGISTRY_IMAGE}"
+    image: goharbor/harbor-registry-base
     environment:
       - REGISTRY_HTTP_SECRET=CHANGEME
     restart: always
