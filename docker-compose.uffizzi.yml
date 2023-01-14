@@ -162,9 +162,17 @@ version: '3.3'
 x-uffizzi:
   ingress:
     service: portal
-    port: 8082
+    port: 8081
 
 services:
+
+  nginx:
+    image: nginx
+    container_name: nginx
+    volumes:
+      - ./nginx-uffizzi:/etc/nginx
+    ports:
+      - '8081:8081'
 
   chartmuseum:
     container_name: chartmuseum
@@ -219,10 +227,10 @@ services:
     #     && sudo export PATH=$PATH:/usr/local/go/bin \
     #     && sudo go /home/harbor/main.go -c /home/harbor/config.yml
     #     "
-    # volumes:
-    #   - registry_data:/storage
-    #   - ./config/registry/:/etc/registry/:ro
-    #   - ./config/registryctl/config.yml:/etc/registryctl/config.yml:ro
+    volumes:
+      - registry_data:/storage
+      - ./config/registry/:/etc/registry/:ro
+      - ./config/registryctl/config.yml:/etc/registryctl/config.yml:ro
   core:
     image: goharbor/harbor-core:v2.6.3
     deploy:
@@ -239,7 +247,7 @@ services:
       - LOG_LEVEL=info
       # - EXT_ENDPOINT=http://reg.mydomain.com
       - DATABASE_TYPE=postgresql
-      - REGISTRY_CONTROLLER_URL=http://localhost:8081
+      - REGISTRY_CONTROLLER_URL=http://localhost:8085
       - POSTGRESQL_HOST=127.0.0.1
       - POSTGRESQL_PORT=5432
       - POSTGRESQL_DATABASE=harbor
