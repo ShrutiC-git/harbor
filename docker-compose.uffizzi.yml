@@ -169,7 +169,7 @@ services:
     image: "${PORTAL_IMAGE}"
 
   registry:
-    image: bitnami/harbor-registry:latest
+    image: "${REGISTRY_IMAGE}"
     environment:
       - REGISTRY_HTTP_SECRET=CHANGEME
     restart: always
@@ -232,14 +232,14 @@ services:
       - POSTGRESQL_PASSWORD=postgres
       - REGISTRY_URL=http://localhost:5000
       - TOKEN_SERVICE_URL=http://localhost:8083/service/token
-      - HARBOR_ADMIN_PASSWORD=bitnami
+      - HARBOR_ADMIN_PASSWORD=password
       - CORE_SECRET=CHANGEME
       - JOBSERVICE_SECRET=CHANGEME
       # - ADMIRAL_URL=
       - WITH_NOTARY=False
       - WITH_CHARTMUSEUM=False
       # - CHART_REPOSITORY_URL=http://chartmuseum:8081
-      - CORE_URL=http://localhost:8081
+      - CORE_URL=http://localhost:8083
       # - JOBSERVICE_URL=http://jobservice:8081
       - REGISTRY_STORAGE_PROVIDER_NAME=filesystem
       - REGISTRY_CREDENTIAL_USERNAME=harbor_registry_user
