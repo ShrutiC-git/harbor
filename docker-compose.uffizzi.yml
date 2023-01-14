@@ -161,8 +161,8 @@ version: '3.3'
 # uffizzi integration
 x-uffizzi:
   ingress:
-    service: nginx
-    port: 8081
+    service: portal
+    port: 8082
 
 services:
 
