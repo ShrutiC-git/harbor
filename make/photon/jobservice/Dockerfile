@@ -19,6 +19,6 @@ USER harbor
 
 VOLUME ["/var/log/jobs/", "/var/scandata_exports"]
 
-HEALTHCHECK CMD curl --fail -s http://localhost:8081/api/v1/stats || curl -sk --fail --key /etc/harbor/ssl/job_service.key --cert /etc/harbor/ssl/job_service.crt https://localhost:8443/api/v1/stats || exit 1
+HEALTHCHECK CMD curl --fail -s http://localhost:8083/api/v1/stats || curl -sk --fail --key /etc/harbor/ssl/job_service.key --cert /etc/harbor/ssl/job_service.crt https://localhost:8443/api/v1/stats || exit 1
 
 ENTRYPOINT ["/harbor/entrypoint.sh"]
