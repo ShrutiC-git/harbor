@@ -184,7 +184,7 @@ services:
     image: "${PORTAL_IMAGE}"
 
   registry:
-    image: docker.io/bitnami/harbor-registry:2
+    image: bitnami/harbor-registry:latest
     environment:
       - REGISTRY_HTTP_SECRET=CHANGEME
     restart: always
