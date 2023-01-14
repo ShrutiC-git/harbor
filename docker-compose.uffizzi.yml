@@ -169,7 +169,7 @@ services:
     image: "${PORTAL_IMAGE}"
 
   registry:
-    image: goharbor/harbor-registry-base
+    image: goharbor/harbor-registry-base:v2.6.3
     environment:
       - REGISTRY_HTTP_SECRET=CHANGEME
     restart: always
@@ -209,7 +209,7 @@ services:
     #   - ./config/registry/:/etc/registry/:ro
     #   - ./config/registryctl/config.yml:/etc/registryctl/config.yml:ro
   core:
-    image: goharbor/harbor-core
+    image: goharbor/harbor-core:v2.6.3
     deploy:
           resources:
             limits:
