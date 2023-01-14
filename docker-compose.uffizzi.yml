@@ -228,7 +228,7 @@ services:
     deploy:
           resources:
             limits:
-              memory: 1000M
+              memory: 2000M
     environment:
       # - CORE_KEY=change-this-key
       # - _REDIS_URL_CORE=redis://redis:6379/0
@@ -252,7 +252,7 @@ services:
       - JOBSERVICE_SECRET=CHANGEME
       # - ADMIRAL_URL=
       - WITH_NOTARY=False
-      - WITH_CHARTMUSEUM=False
+      - WITH_CHARTMUSEUM=True
       - CHART_REPOSITORY_URL=http://localhost:8084
       - CORE_URL=http://localhost:8083
       # - JOBSERVICE_URL=http://jobservice:8081
@@ -264,7 +264,7 @@ services:
     volumes:
       - core_data:/data
       - ./config/core/app.conf:/etc/core/app.conf:ro
-      # - ./config/core/private_key.pem:/etc/core/private_key.pem:ro
+      - ./config/core/private_key.pem:/etc/core/private_key.pem:ro
 
   postgres:
     image: postgres:latest
