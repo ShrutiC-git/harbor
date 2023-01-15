@@ -244,7 +244,7 @@ func main() {
 	// Scheduling of system artifact depends on the jobservice, where gorountine is used to avoid the circular
 	// dependencies between core and jobservice.
 	go func() {
-		url := config.InternalJobServiceURL() + "/api/v1/stats"
+		url := config.InternalJobServiceURL() + "/api/v2.0/stats"
 		checker := health.HTTPStatusCodeHealthChecker(http.MethodGet, url, nil, 60*time.Second, http.StatusOK)
 		options := []retry.Option{
 			retry.InitialInterval(time.Millisecond * 500),
