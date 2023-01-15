@@ -272,18 +272,18 @@ services:
       - ./config/core/app.conf:/etc/core/app.conf:ro
       - ./config/core/private_key.pem:/etc/core/private_key.pem:ro
 
-  jobservice:
-    image: "${JOBSERVICE_IMAGE}"
-    environment:
-      - CORE_SECRET=CHANGEME
-      - JOBSERVICE_SECRET=CHANGEME
-      - CORE_URL=http://localhost:8083
-      - REGISTRY_CONTROLLER_URL=http://localhost:8085
-      - REGISTRY_CREDENTIAL_USERNAME=harbor_registry_user
-      - REGISTRY_CREDENTIAL_PASSWORD=harbor_registry_password
-    volumes:
-      - jobservice_data:/var/log/jobs
-      - ./config/jobservice/config.yml:/etc/jobservice/config.yml:ro
+  # jobservice:
+  #   image: "${JOBSERVICE_IMAGE}"
+  #   environment:
+  #     - CORE_SECRET=CHANGEME
+  #     - JOBSERVICE_SECRET=CHANGEME
+  #     - CORE_URL=http://localhost:8083
+  #     - REGISTRY_CONTROLLER_URL=http://localhost:8085
+  #     - REGISTRY_CREDENTIAL_USERNAME=harbor_registry_user
+  #     - REGISTRY_CREDENTIAL_PASSWORD=harbor_registry_password
+  #   volumes:
+  #     - jobservice_data:/var/log/jobs
+  #     - ./config/jobservice/config.yml:/etc/jobservice/config.yml:ro
 
   postgres:
     image: postgres:latest
