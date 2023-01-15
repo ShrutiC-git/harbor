@@ -1,6 +1,6 @@
 ---
 protocol: "http"
-port: 8080
+port: 8085
 log_level: "INFO"
 registry_config: "/home/harbor/config.yml"
 
