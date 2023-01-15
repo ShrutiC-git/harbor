@@ -241,7 +241,7 @@ services:
       - SYNC_REGISTRY=false
       - CHART_CACHE_DRIVER=redis
       - _REDIS_URL_REG=redis://localhost:6379/1
-      - PORT=8083
+      - PORT=8080
       - LOG_LEVEL=info
       # - EXT_ENDPOINT=http://reg.mydomain.com
       - DATABASE_TYPE=postgresql
@@ -260,7 +260,7 @@ services:
       - WITH_NOTARY=False
       - WITH_CHARTMUSEUM=True
       - CHART_REPOSITORY_URL=http://localhost:8084
-      - CORE_URL=http://localhost:8083
+      - CORE_URL=http://localhost:8080
       # - JOBSERVICE_URL=http://jobservice:8081
       - REGISTRY_STORAGE_PROVIDER_NAME=filesystem
       - REGISTRY_CREDENTIAL_USERNAME=harbor_registry_user
