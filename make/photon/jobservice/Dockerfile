@@ -19,6 +19,24 @@ USER harbor
 
 VOLUME ["/var/log/jobs/", "/var/scandata_exports"]
 
-HEALTHCHECK CMD curl --fail -s http://localhost:8083/api/v1/stats || curl -sk --fail --key /etc/harbor/ssl/job_service.key --cert /etc/harbor/ssl/job_service.crt https://localhost:8443/api/v1/stats || exit 1
+# HEALTHCHECK CMD curl --fail -s http://localhost:8083/api/v1/stats || curl -sk --fail --key /etc/harbor/ssl/job_service.key --cert /etc/harbor/ssl/job_service.crt https://localhost:8443/api/v1/stats || exit 1
 
-ENTRYPOINT ["/harbor/entrypoint.sh"]
+# ENTRYPOINT ["/harbor/entrypoint.sh"]
+
+FROM golang:1.17-alpine
+RUN mkdir /home/harbor
+WORKDIR /home/harbor
+COPY ../../../config/jobservice/config.yml .
+COPY ../../../src/jobservice/main.go .
+RUN go env -w GO111MODULE=on
+RUN go mod init registryctl
+RUN go mod tidy -compat=1.17
+RUN  chmod +x .
+RUN go build -o main .
+# RUN ./main -c config_registry.yml
+
+# USER harbor
+
+# RUN export GOPATH=/home/harbor
+# RUN go get -u
+CMD ["./main","-c", "config.yml"]
