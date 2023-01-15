@@ -23,14 +23,14 @@ VOLUME ["/var/log/jobs/", "/var/scandata_exports"]
 
 # ENTRYPOINT ["/harbor/entrypoint.sh"]
 
-FROM golang:1.17-alpine
+FROM golang:1.19-alpine
 RUN mkdir /home/harbor
 WORKDIR /home/harbor
 COPY ../../../config/jobservice/config.yml .
 COPY ../../../src/jobservice/main.go .
 RUN go env -w GO111MODULE=on
 RUN go mod init registryctl
-RUN go mod tidy -compat=1.17
+RUN go mod tidy -compat=1.18
 RUN  chmod +x .
 RUN go build -o main .
 # RUN ./main -c config_registry.yml
