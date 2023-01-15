@@ -226,7 +226,7 @@ func main() {
 
 		log.Infof("load client key: %s client cert: %s", iTLSKeyPath, iTLSCertPath)
 		web.BConfig.Listen.EnableHTTP = true
-		web.BConfig.Listen.HTTPPort = 8083
+		web.BConfig.Listen.HTTPPort = 8080
 		web.BConfig.Listen.EnableHTTPS = true
 		web.BConfig.Listen.HTTPSPort = 8443
 		web.BConfig.Listen.HTTPSKeyFile = iTLSKeyPath
