@@ -19,7 +19,7 @@ redis:
   db: 1
 http:
   addr: :5000
-  secret: CHANGEME
+  secret: password
   debug:
     addr: localhost:5001
 auth:

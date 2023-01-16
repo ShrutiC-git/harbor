@@ -191,7 +191,7 @@ services:
   registry:
     image: bitnami/harbor-registry:latest
     environment:
-      - REGISTRY_HTTP_SECRET=CHANGEME
+      - REGISTRY_HTTP_SECRET=password
     restart: always
     deploy:
           resources:
@@ -208,9 +208,9 @@ services:
   registryctl:
     image: "${REGISTRY_CTL_IMAGE}"
     environment:
-      - CORE_SECRET=CHANGEME
-      - JOBSERVICE_SECRET=CHANGEME
-      - REGISTRY_HTTP_SECRET=CHANGEME
+      - CORE_SECRET=password
+      - JOBSERVICE_SECRET=password
+      - REGISTRY_HTTP_SECRET=password
     # entrypoint: /bin/sh
     # command:
     #  - "-c"
@@ -235,7 +235,7 @@ services:
             limits:
               memory: 2000M
     environment:
-      - CORE_KEY=change-this-key
+      - CORE_KEY=password
       - _REDIS_URL_CORE=redis://localhost:6379/0
       - SYNC_REGISTRY=false
       - CHART_CACHE_DRIVER=redis
@@ -253,8 +253,8 @@ services:
       - REGISTRY_URL=http://localhost:5000/
       - TOKEN_SERVICE_URL=http://localhost:8080/service/token
       - HARBOR_ADMIN_PASSWORD=password
-      - CORE_SECRET=CHANGEME
-      - JOBSERVICE_SECRET=CHANGEME
+      - CORE_SECRET=password
+      - JOBSERVICE_SECRET=password
       # - ADMIRAL_URL=
       - WITH_NOTARY=False
       - WITH_CHARTMUSEUM=True
@@ -262,8 +262,8 @@ services:
       - CORE_URL=http://localhost:8080
       - JOBSERVICE_URL=http://jobservice:8080
       - REGISTRY_STORAGE_PROVIDER_NAME=filesystem
-      - REGISTRY_CREDENTIAL_USERNAME=harbor_registry_user
-      - REGISTRY_CREDENTIAL_PASSWORD=harbor_registry_password
+      - REGISTRY_CREDENTIAL_USERNAME=password
+      - REGISTRY_CREDENTIAL_PASSWORD=password
       # - READ_ONLY=false
       # - RELOAD_KEY=
     volumes:
@@ -274,12 +274,12 @@ services:
   jobservice:
     image: "${JOBSERVICE_IMAGE}"
     environment:
-      - CORE_SECRET=CHANGEME
-      - JOBSERVICE_SECRET=CHANGEME
+      - CORE_SECRET=password
+      - JOBSERVICE_SECRET=password
       - CORE_URL=http://localhost:8080
       - REGISTRY_CONTROLLER_URL=http://localhost:8085
-      - REGISTRY_CREDENTIAL_USERNAME=harbor_registry_user
-      - REGISTRY_CREDENTIAL_PASSWORD=harbor_registry_password
+      - REGISTRY_CREDENTIAL_USERNAME=password
+      - REGISTRY_CREDENTIAL_PASSWORD=password
     volumes:
       - jobservice_data:/var/log/jobs
       - ./config/jobservice/config.yml:/etc/jobservice/config.yml:ro
