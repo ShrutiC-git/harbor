@@ -277,7 +277,7 @@ services:
     environment:
       - CORE_SECRET=CHANGEME
       - JOBSERVICE_SECRET=CHANGEME
-      - CORE_URL=http://localhost:8083
+      - CORE_URL=http://localhost:8080
       - REGISTRY_CONTROLLER_URL=http://localhost:8085
       - REGISTRY_CREDENTIAL_USERNAME=harbor_registry_user
       - REGISTRY_CREDENTIAL_PASSWORD=harbor_registry_password
