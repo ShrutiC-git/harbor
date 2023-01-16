@@ -185,6 +185,7 @@ services:
       - ALLOW_OVERWRITE=true
       - INDEX_LIMIT=0
       - CORE_SECRET=password
+      - PASSWORD=password
 
   portal:
     image: "${PORTAL_IMAGE}"
