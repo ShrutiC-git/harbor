@@ -166,10 +166,10 @@ x-uffizzi:
 
 services:
 
-  # nginx:
-  #   image: nginx:alpine
-  #   volumes:
-  #     - ./nginx-uffizzi:/etc/nginx
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./nginx-uffizzi:/etc/nginx
 
   chartmuseum:
     container_name: chartmuseum
