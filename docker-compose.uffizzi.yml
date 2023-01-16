@@ -255,7 +255,9 @@ services:
       - HARBOR_ADMIN_PASSWORD=password
       - CORE_SECRET=password
       - JOBSERVICE_SECRET=password
+      - HARBOR_NGINX_ENDPOINT=http://localhost:8081
       # - ADMIRAL_URL=
+      - PORTAL_URL=http://localhost:8081/
       - WITH_NOTARY=False
       - WITH_CHARTMUSEUM=True
       - CHART_REPOSITORY_URL=http://localhost:8084
