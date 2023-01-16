@@ -171,7 +171,6 @@ services:
     volumes:
       - ./nginx-uffizzi:/etc/nginx
 
-
   chartmuseum:
     container_name: chartmuseum
     image: bitnami/chartmuseum
