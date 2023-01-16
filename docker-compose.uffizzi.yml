@@ -246,7 +246,7 @@ services:
       - LOG_LEVEL=info
       # - EXT_ENDPOINT=http://reg.mydomain.com
       - DATABASE_TYPE=postgresql
-      - REGISTRY_CONTROLLER_URL=http://localhost:8085
+      - REGISTRY_CONTROLLER_URL=http://localhost:8080
       - POSTGRESQL_HOST=127.0.0.1
       - POSTGRESQL_PORT=5432
       - POSTGRESQL_DATABASE=harbor
@@ -262,12 +262,13 @@ services:
       - PORTAL_URL=http://localhost:8081/
       - WITH_NOTARY=False
       - WITH_CHARTMUSEUM=True
-      - CHART_REPOSITORY_URL=http://localhost:8084
+      - CHART_REPOSITORY_URL=http://localhost:8080
       - CORE_URL=http://localhost:8080
-      - JOBSERVICE_URL=http://jobservice:8086
+      - JOBSERVICE_URL=http://jobservice:8080
       - REGISTRY_STORAGE_PROVIDER_NAME=filesystem
       - REGISTRY_CREDENTIAL_USERNAME=password
       - REGISTRY_CREDENTIAL_PASSWORD=password
+      - NO_PROXY=localhost
       # - READ_ONLY=false
       # - RELOAD_KEY=
     volumes:
