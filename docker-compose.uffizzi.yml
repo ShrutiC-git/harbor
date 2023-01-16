@@ -161,15 +161,15 @@ version: '3.3'
 # uffizzi integration
 x-uffizzi:
   ingress:
-    service: nginx
-    port: 8081
+    service: portal
+    port: 8082
 
 services:
 
-  nginx:
-    image: nginx:alpine
-    volumes:
-      - ./nginx-uffizzi:/etc/nginx
+  # nginx:
+  #   image: nginx:alpine
+  #   volumes:
+  #     - ./nginx-uffizzi:/etc/nginx
 
   chartmuseum:
     container_name: chartmuseum
