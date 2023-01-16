@@ -209,7 +209,7 @@ services:
   registryctl:
     image: "${REGISTRY_CTL_IMAGE}"
     environment:
-      - CORE_SECRET=password
+      - CORE_SECRET=CORE_SECRET
       - JOBSERVICE_SECRET=password
       - REGISTRY_HTTP_SECRET=password
     # entrypoint: /bin/sh
@@ -255,7 +255,7 @@ services:
       - REGISTRY_URL=http://localhost:5000/
       - TOKEN_SERVICE_URL=http://localhost:8080/service/token
       - HARBOR_ADMIN_PASSWORD=password
-      - CORE_SECRET=password
+      - CORE_SECRET=CORE_SECRET
       - JOBSERVICE_SECRET=password
       - HARBOR_NGINX_ENDPOINT=http://localhost:8081
       # - ADMIRAL_URL=
@@ -279,7 +279,7 @@ services:
   jobservice:
     image: "${JOBSERVICE_IMAGE}"
     environment:
-      - CORE_SECRET=password
+      - CORE_SECRET=CORE_SECRET
       - JOBSERVICE_SECRET=password
       - CORE_URL=http://localhost:8080
       - REGISTRY_CONTROLLER_URL=http://localhost:8085
