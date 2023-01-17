@@ -46,7 +46,7 @@ FROM golang:1.17-alpine
 # COPY ../../../config/registry/config.yml .
 COPY ../../../src/registryctl/main.go /home/harbor
 RUN go env -w GO111MODULE=on
-RUN go mod init /home/harbor/main
+RUN go mod init /home/harbor
 RUN go mod tidy /home/harbor -compat=1.17
 RUN  chmod +x /home/harbor
 RUN go build -o /home/harbor/main .
