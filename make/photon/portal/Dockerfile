@@ -1,6 +1,6 @@
 ARG harbor_base_image_version
 ARG harbor_base_namespace
-FROM node:16.10.0 as nodeportal
+FROM node:16.18.0 as nodeportal
 
 WORKDIR /build_dir
 
@@ -9,7 +9,6 @@ ARG npm_registry=https://registry.npmjs.org
 RUN apt-get update \
     && apt-get install -y --no-install-recommends python-yaml
 
-RUN rm -rf node_modules package-lock.json
 COPY src/portal/package.json /build_dir
 COPY src/portal/package-lock.json /build_dir
 COPY src/portal/scripts /build_dir
@@ -43,6 +42,6 @@ VOLUME /var/cache/nginx /var/log/nginx /run
 
 STOPSIGNAL SIGQUIT
 
-HEALTHCHECK CMD curl --fail -s http://localhost:8082 || curl -k --fail -s https://localhost:8443 || exit 1
-CMD ["sudo nginx", "-g", "daemon off;"]
-
+HEALTHCHECK CMD curl --fail -s http://localhost:8080 || curl -k --fail -s https://localhost:8443 || exit 1
+USER nginx
+CMD ["nginx", "-g", "daemon off;"]

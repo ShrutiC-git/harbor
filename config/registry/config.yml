@@ -30,7 +30,7 @@ notifications:
   endpoints:
   - name: harbor
     disabled: false
-    url: http://core:8080/service/notifications
+    url: http://localhost:8080/service/notifications
     timeout: 3000ms
     threshold: 5
     backoff: 1s
