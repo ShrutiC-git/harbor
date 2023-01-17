@@ -204,6 +204,9 @@ services:
       - CORE_SECRET=password
       - JOBSERVICE_SECRET=password
       - REGISTRY_HTTP_SECRET=password
+    command:
+      - "-c"
+      - "./home/harbor/main -c /etc/registryctl/config.yml"
     # entrypoint: /bin/sh
     # command:
     #  - "-c"
