@@ -195,6 +195,7 @@ services:
     environment:
       - REGISTRY_HTTP_SECRET=password
       - HARBOR_NGINX_ENDPOINT=http://localhost:8081
+      - CORE_SECRET=password
     restart: always
     deploy:
           resources:
@@ -206,8 +207,8 @@ services:
     #   - /etc/core/ca/ca.crt:/etc/registry/root.crt
     ports:
       - 5000:5000
-    # command:
-    #   ["serve", "/etc/registry/config.yml"]
+    command:
+      ["serve", "/etc/registry/config.yml"]
   registryctl:
     image: "${REGISTRY_CTL_IMAGE}"
     environment:
@@ -248,25 +249,28 @@ services:
       - LOG_LEVEL=info
       # - EXT_ENDPOINT=http://reg.mydomain.com
       - DATABASE_TYPE=postgresql
-      - REGISTRY_CONTROLLER_URL=http://localhost:8080
+      - REGISTRY_CONTROLLER_URL=http://localhost:8085
+      - REGISTRYCTL_URL=http://localhost:8085
       - POSTGRESQL_HOST=127.0.0.1
       - POSTGRESQL_PORT=5432
       - POSTGRESQL_DATABASE=harbor
       - POSTGRESQL_USERNAME=postgres
       - POSTGRESQL_PASSWORD=postgres
-      - REGISTRY_URL=http://localhost:5000/
+      - REGISTRY_URL=http://localhost:5000
+      - REGISTRY_HTTP_SECRET=password
       - TOKEN_SERVICE_URL=http://localhost:8080/service/token
       - HARBOR_ADMIN_PASSWORD=password
       - CORE_SECRET=password
       - JOBSERVICE_SECRET=password
       - HARBOR_NGINX_ENDPOINT=http://localhost:8081
       # - ADMIRAL_URL=
-      - PORTAL_URL=http://localhost:8081/
-      - WITH_NOTARY=False
-      - WITH_CHARTMUSEUM=True
+      - PORTAL_URL=http://localhost:8081
+      - WITH_NOTARY=false
+      - WITH_CLAIR=false
+      - WITH_CHARTMUSEUM=true
       - CHART_REPOSITORY_URL=http://localhost:8080
       - CORE_URL=http://localhost:8080
-      - JOBSERVICE_URL=http://jobservice:8080
+      - JOBSERVICE_URL=http://localhost:8086
       - REGISTRY_STORAGE_PROVIDER_NAME=filesystem
       - REGISTRY_CREDENTIAL_USERNAME=password
       - REGISTRY_CREDENTIAL_PASSWORD=password
