@@ -47,7 +47,7 @@ WORKDIR /home/harbor
 COPY ../../../src/registryctl/main.go .
 
 RUN go env -w GO111MODULE=on
-RUN go mod init
+RUN go mod init registryctl
 RUN go mod tidy -compat=1.17
 RUN  chmod +x .
 RUN go build -o main .
