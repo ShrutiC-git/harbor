@@ -14,7 +14,7 @@ storage:
   delete:
     enabled: true
 redis:
-  addr: http://localhost:6379
+  addr: localhost:6379
   password:
   db: 1
 http:
