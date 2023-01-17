@@ -171,21 +171,11 @@ services:
   #   volumes:
   #     - ./nginx-uffizzi:/etc/nginx
 
-  chartmuseum:
-    container_name: chartmuseum
-    image: bitnami/chartmuseum
+  trivy:
+    image: goharbor/harbor-trivy-adapter-base:v2.5.5
     environment:
-      # - CACHE=redis
-      # - CACHE_REDIS_ADDR=redis:6379
-      # - CACHE_REDIS_DB=1
-      # - DEPTH=1
-      - PORT=8084
-      - STORAGE=local
-      - STORAGE_LOCAL_ROOTDIR=/uffizzi/data
-      - ALLOW_OVERWRITE=true
-      - INDEX_LIMIT=0
-      - CORE_SECRET=password
-      - PASSWORD=password
+     - SCANNER_STORE_REDIS_URL=redis://localhost:6379/4
+     - SCANNER_JOB_QUEUE_REDIS_URL=redis://localhost:6379/4
 
   portal:
     image: "${PORTAL_IMAGE}"
@@ -196,6 +186,7 @@ services:
       - REGISTRY_HTTP_SECRET=password
       - HARBOR_NGINX_ENDPOINT=http://localhost:8081
       - CORE_SECRET=password
+      - JOBSERVICE_SECRET=password
     restart: always
     deploy:
           resources:

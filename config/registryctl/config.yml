@@ -2,7 +2,7 @@
 protocol: "http"
 port: 8085
 log_level: "INFO"
-registry_config: "/home/harbor/config.yml"
+registry_config: "/etc/registry/config.yml"
 
 #https_config:
 #  cert: "server.crt"
