@@ -43,6 +43,7 @@ FROM golang:1.17-alpine
 COPY ../../../config/registryctl/config.yml /etc/registryctl
 COPY ../../../config/registry/config.yml /etc/registry
 COPY ../../../src/registryctl/main.go /etc/registryctl
+RUN mkdir /etc/registryctl
 WORKDIR /etc/registryctl
 RUN go env -w GO111MODULE=on
 RUN go mod init registryctl
