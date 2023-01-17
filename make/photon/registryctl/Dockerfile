@@ -39,12 +39,13 @@ RUN chown -R harbor:harbor /etc/pki/tls/certs \
 #      && chown harbor:harbor /home/harbor/main.go && chmod u+x /home/harbor/main.go
 
 FROM golang:1.17-alpine
-# RUN mkdir /home/harbor
+RUN mkdir /home/harbor
 # WORKDIR /home/harbor
 # COPY ../../../config/registryctl/config.yml .
 # RUN mv config.yml config_registry.yml
 # COPY ../../../config/registry/config.yml .
 COPY ../../../src/registryctl/main.go /home/harbor
+
 RUN go env -w GO111MODULE=on
 RUN go mod init /home/harbor
 RUN go mod tidy /home/harbor -compat=1.17
@@ -56,7 +57,7 @@ RUN go build -o /home/harbor/main .
 
 # RUN export GOPATH=/home/harbor
 # RUN go get -u
-CMD ["./main","-c", "/etc/registryctl/config.yml"]
+CMD ["/home/harbor/main","-c", "/etc/registryctl/config.yml"]
 # RUN go run main.go -c config_registry.yml
 
 # VOLUME ["/var/lib/registry"]
