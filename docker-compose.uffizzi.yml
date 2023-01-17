@@ -173,7 +173,7 @@ services:
 
   chartmuseum:
     container_name: chartmuseum
-    image: docker.io/bitnami/chartmuseum:0
+    image: bitnami/chartmuseum:latest
     environment:
       - CACHE=redis
       - CACHE_REDIS_ADDR=redis://localhost:6379
@@ -212,19 +212,6 @@ services:
       - CORE_SECRET=password
       - JOBSERVICE_SECRET=password
       - REGISTRY_HTTP_SECRET=password
-    # entrypoint: /bin/sh
-    # command:
-    #  - "-c"
-    #  - "
-    #     yum install sudo \
-    #     && sudo yum install wget -y \
-    #     && sudo yum update -y \
-    #     && sudo yum install wget -y \
-    #     && sudo wget https://go.dev/dl/go1.19.5.src.tar.gz \
-    #     && sudo rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.5.src.tar.gz \
-    #     && sudo export PATH=$PATH:/usr/local/go/bin \
-    #     && sudo go /home/harbor/main.go -c /home/harbor/config.yml
-    #     "
     volumes:
       - registry_data:/storage
       - ./config/registry/:/etc/registry/:ro
