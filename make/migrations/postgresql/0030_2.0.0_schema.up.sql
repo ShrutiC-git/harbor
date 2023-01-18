@@ -19,7 +19,7 @@ table artifact:
 ALTER TABLE admin_job ADD COLUMN job_parameters varchar(255) Default '';
 
 /*record the data version to decide whether the data migration should be skipped*/
-ALTER TABLE schema_migrations ADD COLUMN data_version int;
+ALTER TABLE public.schema_migrations ADD COLUMN data_version int;
 
 ALTER TABLE artifact ADD COLUMN repository_id int;
 ALTER TABLE artifact ADD COLUMN media_type varchar(255);
