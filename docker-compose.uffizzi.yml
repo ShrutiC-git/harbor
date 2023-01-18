@@ -121,6 +121,9 @@ services:
   postgres:
     image: postgres:latest
     restart: always
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data/
+      - ./make/migrations/postgresql/:/docker-entrypoint-initdb.d/
     environment:
      - POSTGRES_USER=postgres
      - POSTGRES_PASSWORD=postgres
