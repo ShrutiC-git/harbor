@@ -1,8 +1,3 @@
-CREATE DATABASE registry ENCODING 'UTF8';
-\c registry;
-
-CREATE TABLE schema_migrations(version bigint not null primary key, dirty boolean not null);
-
 create table access (
  access_id SERIAL PRIMARY KEY NOT NULL,
  access_code char(1),
