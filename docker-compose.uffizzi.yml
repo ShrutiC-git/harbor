@@ -122,13 +122,13 @@ services:
     image: postgres:latest
     restart: always
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_volume:/var/lib/postgresql/data/
       - ./make/migrations/postgresql/:/docker-entrypoint-initdb.d/
     environment:
      - POSTGRES_USER=postgres
      - POSTGRES_PASSWORD=postgres
      - POSTGRES_DB=harbor
-     - PGDATA=/tmp
+     - PGDATA=/tm
     ports:
       - 5432:5432
     deploy:
@@ -154,7 +154,7 @@ volumes:
     driver: local
   jobservice_data:
     driver: local
-  postgres_data:
+  postgres_volume:
     driver: local
   chartmuseum_data:
     driver: local
