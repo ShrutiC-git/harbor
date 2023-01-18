@@ -131,6 +131,10 @@ services:
      - PGDATA=/tmp
     ports:
       - 5432:5432
+    deploy:
+          resources:
+            limits:
+              memory: 1000M
 
   redis:
     image: redis
