@@ -16,16 +16,10 @@ table artifact:
   CONSTRAINT unique_artifact UNIQUE (repository_id, digest)
 */
 
-CREATE DATABASE registry ENCODING 'UTF8';
-\c registry;
-
-CREATE TABLE schema_migrations(version bigint not null primary key, dirty boolean not null, data_version int);
-
-
 ALTER TABLE admin_job ADD COLUMN job_parameters varchar(255) Default '';
 
 /*record the data version to decide whether the data migration should be skipped*/
--- ALTER TABLE schema_migrations ADD COLUMN data_version int;
+ALTER TABLE schema_migrations ADD COLUMN data_version int;
 
 ALTER TABLE artifact ADD COLUMN repository_id int;
 ALTER TABLE artifact ADD COLUMN media_type varchar(255);
