@@ -22,7 +22,7 @@ services:
       - REGISTRY_CREDENTIAL_PASSWORD=password
     volumes:
       - jobservice_data:/var/log/jobs
-      - ./config/jobservice/config.yml:/etc/jobservice/config.yml:ro
+      - ./config-uffizzi/jobservice/config.yml:/etc/jobservice/config.yml:ro
 
   registryctl:
     image: "${REGISTRY_CTL_IMAGE}"
@@ -32,8 +32,8 @@ services:
       - REGISTRY_HTTP_SECRET=password
     volumes:
       - registry_data:/storage
-      - ./config/registry/:/etc/registry/:ro
-      - ./config/registryctl/config.yml:/etc/registryctl/config.yml:ro
+      - ./config-uffizzi/registry/:/etc/registry/:ro
+      - ./config-uffizzi/registryctl/config.yml:/etc/registryctl/config.yml:ro
 
   registry:
     image: bitnami/harbor-registry:latest
@@ -49,7 +49,7 @@ services:
               memory: 2000M
     volumes:
       # - /data/registry:/storage
-      - ./config/registry/:/etc/registry/
+      - ./config-uffizzi/registry/:/etc/registry/
     #   - /etc/core/ca/ca.crt:/etc/registry/root.crt
     ports:
       - 5000:5000
@@ -100,8 +100,8 @@ services:
       # - RELOAD_KEY=
     volumes:
       - core_data:/data
-      - ./config/core/app.conf:/etc/core/app.conf:ro
-      - ./config/core/private_key.pem:/etc/core/private_key.pem:ro
+      - ./config-uffizzi/core/app.conf:/etc/core/app.conf:ro
+      - ./config-uffizzi/core/private_key.pem:/etc/core/private_key.pem:ro
 
   chartmuseum:
     image: bitnami/chartmuseum:latest
