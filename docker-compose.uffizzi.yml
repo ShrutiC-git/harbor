@@ -36,7 +36,7 @@ services:
       - ./config/registryctl/config.yml:/etc/registryctl/config.yml:ro
 
   registry:
-    image: goharbor/harbor-registry-base:v2.6.3
+    image: bitnami/harbor-registry:latest
     environment:
       - REGISTRY_HTTP_SECRET=password
       - HARBOR_NGINX_ENDPOINT=http://localhost:8081
