@@ -122,7 +122,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha, mode=max
 
-  build-registry-core:
+  build-harbor-core:
     name: Build and push `Registry-core`
     runs-on: ubuntu-latest
     outputs:
