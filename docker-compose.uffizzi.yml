@@ -36,7 +36,7 @@ services:
       - ./config/registryctl/config.yml:/etc/registryctl/config.yml:ro
 
   registry:
-    image: bitnami/harbor-registry:latest
+    image: goharbor/harbor-registry-base:v2.6.3
     environment:
       - REGISTRY_HTTP_SECRET=password
       - HARBOR_NGINX_ENDPOINT=http://localhost:8081
@@ -104,7 +104,6 @@ services:
       - ./config/core/private_key.pem:/etc/core/private_key.pem:ro
 
   chartmuseum:
-    container_name: chartmuseum
     image: bitnami/chartmuseum:latest
     environment:
       - CACHE=redis
