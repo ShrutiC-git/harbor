@@ -55,7 +55,7 @@ services:
       - 5000:5000
 
   core:
-    image: "${CORE_IMAGE}"
+    image: "goharbor/harbor-core:v2.6.3"
     deploy:
           resources:
             limits:
