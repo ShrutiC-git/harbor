@@ -69,7 +69,6 @@ services:
       - _REDIS_URL_REG=redis://localhost:6379/1
       - PORT=8080
       - LOG_LEVEL=info
-      # - EXT_ENDPOINT=http://reg.mydomain.com
       - DATABASE_TYPE=postgresql
       - REGISTRY_CONTROLLER_URL=http://localhost:8085
       - REGISTRYCTL_URL=http://localhost:8085
